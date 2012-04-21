@@ -1,0 +1,8 @@
+%script{:type => "text/x-jquery-tmpl", :id => "commentTemplate"}
+  .comment
+    .author
+      <a href = "/${username}">${username}</a>
+    .timestamp
+      ${time}
+    %br
+    ${content}

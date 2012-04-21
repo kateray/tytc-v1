@@ -1,0 +1,28 @@
+#user_container
+	#about_user
+		#name
+			= @user.username
+		- if @user.github_id
+			= link_to 'github.com/' + @user.github_username, 'https://github.com/' + @user.github_username
+		- if @user == current_user
+			- unless current_user.github_id
+				#github_option
+					= link_to 'Link your github', '/auth/github'
+					%br
+					= link_to image_tag("github-round.png"), '/auth/github'
+			.user_description#editable_description{:contenteditable => true}
+				= @user.description
+			%button{:id => 'update_user'}
+				Save Changes
+		- else
+			.user_description
+				= @user.description
+	#header
+		= @user.username + "'s links"
+	#linkList{:data => {:page => 'user'}}
+	:javascript
+		$(document).ready(function() {
+			Tags.reset(#{Tag.all.to_json});
+			Links.reset(#{@links.to_json});
+		});
+= render "/templates/link"

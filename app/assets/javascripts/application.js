@@ -6,4 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require lib/underscore
+//= require lib/json2
+//= requre lib/backbone
+//= require my_functions
 //= require_tree .

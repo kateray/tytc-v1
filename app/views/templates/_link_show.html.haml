@@ -1,0 +1,19 @@
+%script{:type => "text/x-jquery-tmpl", :id => "linkShowTemplate"}
+  .link_container
+    .vote
+      .vote_button
+      %span.vote_count
+        ${votes_count}
+    .link
+      <a href=${url} class="link_url"> ${title} </a>
+      .description
+        ${description}
+      .author
+        submitted by <a href = "/${username}">${username}</a>
+      {{each taggings}} <div class ="link_tag"> ${$value} </div> {{/each}}
+  #commentListView
+    - if current_user
+      = form_for @comment do |f|
+        = f.text_area :content
+        = button_tag "submit"
+    #commentList

@@ -1,0 +1,10 @@
+#new_link_form
+  = form_for @link do |f|
+    = f.text_field :title, :value => 'title'
+    = f.text_field :url, :value => 'url'
+    = button_tag "submit"
+    #contributing_mode{:style => "display:none"}
+      = f.text_area :description, :value => 'description'
+      %br
+      Please add at least one Level, Language, and Category tag ------->
+      #new_link_tags

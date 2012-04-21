@@ -1,0 +1,450 @@
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+/* @override http://localhost:3000/assets/app.css?body=1 */
+
+#jsError {
+	background-color: black;
+	height: 30px;
+	text-align: center;
+	width: auto;
+	color: white;
+	font-size: medium;
+	font-weight: bold;
+	position: fixed;
+	left: 0;
+	padding-top: 20px;
+	right: 0;
+	opacity: 0.7;
+	z-index: 100;
+}
+
+.tag_error {
+	margin-right:-85px;
+	margin-top:8;
+	font-size:11;
+	color:red;
+	float:right;
+}
+
+div#new_link_form {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-top: 15px;
+	margin-left: auto;
+	padding-bottom: 15px;
+	font-size: 13px;
+	padding-right: 45px;
+}
+
+button {
+	outline:0;
+	border:0;
+	-webkit-box-shadow:0px 1px 1px rgba(0,0,0,.65);
+	float: right;
+}
+#user_container button{
+	float: left;
+}
+#user_form input {
+	width: 250px;
+	height: 30px;
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+#github_option a {
+	text-decoration:none;
+}
+
+#user_form button {
+	font-size: 20px;
+}
+
+#user_form #github_option a img {
+	clear: left;
+	margin-left: 40px;
+}
+
+#linkShow button {
+	font-size: 12px;
+}
+#new_link_form button {
+	font-size: 20px;
+	margin-top: -1px;
+}
+
+#close_contributing {
+	float: right;
+}
+
+#new_link_form input {
+	width: 240px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	height: 30px;
+	font-size: 16px;
+}
+
+div.tag_option {
+	cursor: pointer;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+input{
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px;
+}
+
+div.tag_option_container {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: none;
+	border-bottom-width: 1px;
+	padding: 3px;
+	border-style: none;
+}
+
+div.left_container {
+	margin-bottom: 20px;
+}
+
+.inactive {
+	opacity : 0.6;
+}
+
+div.heading {
+	font-weight: bold;
+	font-size: 18px;
+	padding-bottom: 3px;
+}
+
+button[disabled]{
+	color:black;
+}
+
+#new_link_form textarea {
+	height: 60px;
+	width: 473px;
+	font-size: 16px;
+}
+
+#user_form form {
+	float: left;
+}
+
+#user_form {
+	margin-top: 75px;
+	font-size: 20px;
+}
+
+#github_option {
+	float: left;
+}
+
+#user_container #github_option{
+	float: right;
+}
+
+#center {
+	float: left;
+	margin-left: 40px;
+	margin-top: 50px;
+	margin-right: 40px;
+}
+
+#select_level {
+	outline: 0;
+	font-size: 16px;
+	border-style: none;
+	border-width: 0;
+}
+
+#commentListView {
+	margin-top: 25px;
+	clear: left;
+}
+
+#commentList {
+	margin-top: 30px;
+}
+
+textarea#comment_content {
+	width: 473px;
+	height:100px;
+}
+
+a.link_comments {
+	float: left;
+	margin-left: 15px;
+	font-size: 11px;
+	text-decoration: underline;
+	cursor: pointer;
+	padding-top: 6px;
+}
+
+.description {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+#linkList .description {
+	margin-top: 9px;
+}
+.link .author{
+	
+	float: right;
+}
+div.author {
+	font-size: 11px;
+}
+
+#commentList .author {
+	float: left;
+}
+
+#commentList .author a{
+	float: left;
+	text-decoration: none;
+}
+
+div.link_show {
+	margin-left: 23px;
+}
+
+#linkList a.link_url {
+	text-decoration: none;
+	font-size: 20px;
+	float: left;
+}
+
+#linkShow a.link_url {
+	text-decoration: none;
+	font-size: 20px;
+}
+
+div.link_tag {
+	float: left;
+	padding: 3px 4px;
+	background-color: #febab0;
+	font-size: 11px;
+	margin-top: 3px;
+	margin-right: 8px;
+}
+
+a {
+	color: black;
+}
+
+html {
+	height:100%;
+}
+body {
+	font: 16px Helvetica, Arial, sans-serif;
+	overflow: scroll;
+	height:100%;
+}
+.vote_button{
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: 12px solid black;
+	cursor:pointer;
+	float: left;
+	padding-bottom: 3px;
+	margin-top: 2px;
+	color: #a65bf4;
+	margin-bottom: 7px;
+}
+
+div.vote {
+	width: 20px;
+	float: left;
+	text-align: center;
+}
+.selected{
+	background-color:silver;
+}
+.default_text{
+	color:silver;
+	font-style:italic;
+}
+
+.field {
+	border: 1px solid transparent;
+	padding: 3px;
+}
+.field:focus{
+	outline: none;
+	border: 1px solid silver;
+}
+
+.content {
+	margin-right: auto;
+	margin-left: auto;
+	width: 800px;
+	margin-top: 20px;
+	padding-top: 30px;
+}
+
+#left_col {
+	clear: left;
+	width: 130px;
+	margin-top: 11px;
+	float: right;
+}
+
+#right_col {
+	width: 650px;
+	border-right-style: solid;
+	border-left-style: none;
+	border-left-width: 1px;
+	float: left;
+	min-height:100%;
+	border-right-width: 1px;
+}
+
+#top_nav {
+	background-color: #e5432f;
+	height: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	color: white;
+	padding: 10px 5px 15px;
+}
+
+#top_nav_content {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#top_nav a {
+	text-decoration: none;
+	color: white;
+}
+
+#home {
+	float: left;
+	font-weight: bold;
+}
+
+#user_info {
+	float: right;
+}
+
+#languageList {
+	
+}
+
+#links_container {
+	margin-right: 45px;
+}
+
+div.link_container {
+	margin-bottom: 20px;
+	border-bottom: 1px dotted silver;
+	padding-bottom: 30px;
+}
+
+#show_index {
+	margin-bottom: 10px;
+	clear: left;
+	font-size: 14px;
+}
+
+div.link {
+	margin-left: 45px;
+}
+
+span.vote_count {
+	font-size: 20px;
+	margin-left: 3px;
+}
+
+#flash_error {
+	background-color: black;
+	height: 30px;
+	text-align: center;
+	width: auto;
+	color: white;
+	font-size: medium;
+	font-weight: bold;
+	position: fixed;
+	left: 0;
+	padding-top: 20px;
+	right: 0;8
+	opacity: 0.9;
+	z-index: 10;
+}
+
+.invalid {
+	border: 3px solid red;
+}
+input.contributing_tick {
+	float: left;
+}
+
+#linkList {
+	padding-top: 26px;
+}
+
+div.comment {
+	border-bottom: 1px dotted silver;
+	clear: left;
+	margin-bottom: 8px;
+	padding-bottom: 8px;
+}
+
+div.timestamp {
+	font-size: 11px;
+	float: left;
+	padding-left: 8px;
+}
+
+#user_container {
+	margin-top: 50px;
+}
+
+#name {
+	font-size: 40px;
+	float: left;
+}
+
+.user_description{
+	clear: left;
+	padding-bottom: 15px;
+	padding-top: 10px;
+}
+
+#user_container #linkList {
+	border-top-style: dotted;
+	border-top-width: 1px;
+}
+
+#about_user {
+	margin-bottom: 70px;
+}
+#about_user a {
+	float: left;
+	padding-top: 20px;
+	padding-left: 10px;
+}
+#header {
+	font-size: 25px;
+}

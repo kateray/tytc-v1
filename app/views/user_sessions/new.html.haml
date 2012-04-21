@@ -1,0 +1,14 @@
+#user_form
+  = form_for @user_session do |f|
+    = f.text_field :username, :autocomplete => :off, :value => 'Username'
+    %br
+    %input{:type => "text", :class => "placeholder", :value => "Password"}
+    = f.password_field :password, :autocomplete => :off, :style =>"display:none"
+    %br
+    = button_tag "submit"
+  #center
+    OR
+  #github_option
+    = link_to 'Login with Github', '/auth/github'
+    %br
+    = link_to image_tag("github-round.png"), '/auth/github'

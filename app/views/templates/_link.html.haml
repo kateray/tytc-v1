@@ -1,0 +1,13 @@
+%script{:type => "text/x-jquery-tmpl", :id => "linkTemplate"}
+  .link_container
+    .vote
+      .vote_button
+      %span.vote_count
+        ${votes_count}
+    .link
+      <a href= "${url}" class="link_url">${title}</a>
+      <a href= "/links/${id}" class="link_comments">${comments_count} comments</a>
+      %br
+      .description
+        ${description}
+      {{each taggings}} <div class ="link_tag"> ${$value} </div> {{/each}}

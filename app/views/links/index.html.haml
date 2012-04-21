@@ -1,0 +1,39 @@
+#left_col
+  .left_container{:data => {:group => "Level"}}
+    .heading level
+    .tag_list
+  .left_container{:data => {:group => "Language"}}
+    .heading language
+    .tag_list
+    - if current_user
+      .tag_error
+      .tag_option
+        .new_tag_field{:class => "field", :contenteditable => true, :data => {:group => "Language"}}
+          New Language
+  .left_container{:data => {:group => "Category"}}
+    .heading category
+    .tag_list
+    - if current_user
+      .tag_error
+      .tag_option
+        .new_tag_field{:class => "field", :contenteditable => true, :data => {:group => "Category"}}
+          New Category
+#right_col
+  - if current_user
+    = render "links/new"
+  #links_container
+    #linkShow_container
+      #show_index
+        <-- Back to Index
+      #linkShow
+    #linkList{:data => {:page => 'links'}}
+:javascript
+  $(document).ready(function() {
+  	Tags.reset(#{Tag.all.to_json});
+  	Links.reset(#{@links.to_json});
+  });
+
+= render "/templates/link"
+= render "/templates/link_show"
+= render "/templates/tag"
+= render "/templates/comment"
