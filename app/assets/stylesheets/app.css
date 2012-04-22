@@ -429,3 +429,7 @@ div.timestamp {
 #header {
 	font-size: 25px;
 }
+
+#show_index{
+	cursor:pointer;
+}
