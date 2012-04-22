@@ -135,11 +135,13 @@ jQuery(function($){
 			this.contributingOff();
 			$('form[id="new_link"]').find('input, textarea').addDefaultText();
 			$('form[id="new_link"]').submit(this.createLink);
-			$('form[id="new_link"]').ajaxError(function(e, jqXHR, settings, exception){
-				showError(jqXHR.responseText);
-				App.contributingOn()
-				$(this).resetForm();
-			})
+			$(document).ajaxComplete(function(event, XMLHttpRequest, ajaxOptions, errorThrown){
+			    if (XMLHttpRequest.status != 200){
+					showError(XMLHttpRequest.responseText);
+					App.contributingOn()
+					$(this).resetForm();
+			    }
+			});
 			$('#show_index').click(function(){
 				History.pushState(null, null, '/');
 			});
@@ -162,6 +164,8 @@ jQuery(function($){
 			}
 			formData['taggings'] = taggings;
 			var newLink = Links.create(formData, {wait: true});
+			App.contributingOff()
+			$('form[id="new_link"]').resetForm();
 			return false;
 		},
 		
