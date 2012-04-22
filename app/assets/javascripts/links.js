@@ -41,8 +41,8 @@ jQuery(function($){
 				$('#linkShow_container').show();
 				$('#linkList').hide();
 			} else {
-				$('#linkShow_container').show('slide', {direction : 'right'});
 				$('#linkList').hide('slide', {direction : 'left'});
+				$('#linkShow_container').show('slide', {direction : 'right'});
 			}
 		}
 	})

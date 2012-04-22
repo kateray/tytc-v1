@@ -235,6 +235,11 @@ div.link_show {
 	font-size: 20px;
 }
 
+#linkShow_container{
+	position: relative;
+	top:0px;
+}
+
 div.link_tag {
 	float: left;
 	padding: 3px 4px;
@@ -308,6 +313,7 @@ div.vote {
 }
 
 #right_col {
+	position:relative;
 	width: 650px;
 	border-right-style: solid;
 	border-left-style: none;
@@ -401,6 +407,8 @@ input.contributing_tick {
 }
 
 #linkList {
+	position:absolute;
+	top:0px;
 	padding-top: 26px;
 }
 
