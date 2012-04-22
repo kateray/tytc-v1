@@ -5,4 +5,8 @@ class Tag < ActiveRecord::Base
   validates :name, 
   :presence => true,
   :uniqueness => {:message => "Tag already exists"}
+
+  def time
+  	self.created_at.to_i
+  end
 end

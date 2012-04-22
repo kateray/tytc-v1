@@ -29,7 +29,7 @@
     #linkList{:data => {:page => 'links'}}
 :javascript
   $(document).ready(function() {
-  	Tags.reset(#{Tag.all.to_json});
+  	Tags.reset(#{Tag.all.to_json(:methods => :time)});
   	Links.reset(#{@links.to_json});
   });
 

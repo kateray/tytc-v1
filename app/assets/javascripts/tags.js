@@ -20,7 +20,15 @@ jQuery(function($){
 	
 	window.TagList = Backbone.Collection.extend({
 		model : Tag,
-		url : '/tags'
+		url : '/tags',
+		comparator : function(tag){
+			console.log(tag.get("group"))
+			if (tag.get("group") == "Level") {
+				var time = new Date(tag.get("time")*1000);
+				return time;
+			}
+			else return -tag.get("links_count");
+		}
 	})
 	
 	window.Tags = new TagList;
@@ -44,7 +52,6 @@ jQuery(function($){
 		
 		initialize : function(){
 			_.bindAll(this);
-			
 			$(this.el).live('click', this.toggle)
 			this.model.bind('change', this.render);
 			
