@@ -138,8 +138,8 @@ jQuery(function($){
 			$(document).ajaxComplete(function(event, XMLHttpRequest, ajaxOptions, errorThrown){
 			    if (XMLHttpRequest.status != 200){
 					showError(XMLHttpRequest.responseText);
-					App.contributingOn()
-					$(this).resetForm();
+					// App.contributingOn()
+					$('form[id="new_link"]').resetForm();
 			    }
 			});
 			$('#show_index').click(function(){
