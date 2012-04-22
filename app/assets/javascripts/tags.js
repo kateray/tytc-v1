@@ -2,8 +2,8 @@ jQuery(function($){
 	window.Tag = Backbone.Model.extend({
 		validate : function(attrs){
 			var errors = [];
-      if (!attrs.name || attrs.name.length > 15) {
-        $('.left_container[data-group="'+attrs.group+'"]').find('.tag_error').text('Tag already exists!').show().delay(1400).fadeOut('slow', function(){
+      if (!attrs.name || attrs.name.length > 25) {
+        $('.left_container[data-group="'+attrs.group+'"]').find('.tag_error').text('Tag is too long').show().delay(1400).fadeOut('slow', function(){
           $(this).text('');
         })
         errors.push("Tag is too long");
