@@ -1,1 +1,6 @@
 == Teach Yourself To Code
+
+== To Do
+- allow editing of links (edit description, add or remove tags, etc)
+- make Rails error messages completely custom
+- improve insane Tag Load on links#index

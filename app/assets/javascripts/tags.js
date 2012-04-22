@@ -22,7 +22,6 @@ jQuery(function($){
 		model : Tag,
 		url : '/tags',
 		comparator : function(tag){
-			console.log(tag.get("group"))
 			if (tag.get("group") == "Level") {
 				var time = new Date(tag.get("time")*1000);
 				return time;

@@ -138,7 +138,6 @@ jQuery(function($){
 			$(document).ajaxComplete(function(event, XMLHttpRequest, ajaxOptions, errorThrown){
 			    if (XMLHttpRequest.status != 200){
 					showError(XMLHttpRequest.responseText);
-					// App.contributingOn()
 					$('form[id="new_link"]').resetForm();
 			    }
 			});
@@ -164,8 +163,10 @@ jQuery(function($){
 			}
 			formData['taggings'] = taggings;
 			var newLink = Links.create(formData, {wait: true});
-			App.contributingOff()
-			$('form[id="new_link"]').resetForm();
+			if (newLink){
+				App.contributingOff()
+				$('form[id="new_link"]').resetForm();
+			}
 			return false;
 		},
 		
