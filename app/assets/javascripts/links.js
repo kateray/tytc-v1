@@ -181,7 +181,7 @@ jQuery(function($){
 		
 		showIndex : function(){
 			//tktk this is a bad way of finding whether to query
-			if ($('#linkList').find('.link_container').length < 2) Links.query()
+			if ($('#linkList').find('.link_container').length < 2 && $('#user_container').length == 0) Links.query()
 			if (first == true){
 				first = false;
 				$('#linkShow_container').hide();
