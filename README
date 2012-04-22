@@ -5,3 +5,4 @@
 - make Rails error messages completely custom
 - improve insane Tag Load on links#index
 - let users add email
+- meta: write REAL documentation. and comments
