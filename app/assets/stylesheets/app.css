@@ -313,7 +313,6 @@ div.vote {
 }
 
 #right_col {
-	position:relative;
 	width: 650px;
 	border-right-style: solid;
 	border-left-style: none;
@@ -360,6 +359,7 @@ div.vote {
 
 #links_container {
 	margin-right: 45px;
+	position:relative;
 }
 
 div.link_container {
