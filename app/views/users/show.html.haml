@@ -19,7 +19,8 @@
 				= @user.description
 	#header
 		= @user.username + "'s links"
-	#linkList{:data => {:page => 'user'}}
+	#links_container
+		#linkList{:data => {:page => 'user'}}
 	:javascript
 		$(document).ready(function() {
 			Tags.reset(#{Tag.all.to_json});
