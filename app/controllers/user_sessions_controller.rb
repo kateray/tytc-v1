@@ -15,6 +15,10 @@ class UserSessionsController < ApplicationController
       redirect_to :back
     end
   end
+
+  def about
+    render
+  end
   
   def callback
     auth = request.env["omniauth.auth"]

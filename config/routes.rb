@@ -4,6 +4,7 @@ Tytc::Application.routes.draw do
   match "/logout" => "user_sessions#destroy"
   match "/auth/:provider/callback" => "user_sessions#callback"
   match "/save" => "users#update"
+  match "/about" => "user_sessions#about"
   resources :users
   resources :links
   resources :comments

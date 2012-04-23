@@ -433,3 +433,14 @@ div.timestamp {
 #show_index{
 	cursor:pointer;
 }
+
+#about_link {
+	font-size: 11px;
+	float: left;
+	margin-left: 13px;
+	padding-top: 3px;
+}
+
+#about {
+	font-size:20px;
+}
