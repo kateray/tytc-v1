@@ -195,6 +195,10 @@ div.author {
 	font-size: 11px;
 }
 
+.footer{
+	font-size: 11px;
+}
+
 #commentList .author {
 	float: left;
 }
