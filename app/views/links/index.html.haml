@@ -27,6 +27,8 @@
         <-- Back to Index
       #linkShow
     #linkList{:data => {:page => 'links'}}
+  .author
+    made with love by <a href="/kateray">kateray</a>
 :javascript
   $(document).ready(function() {
   	Tags.reset(#{Tag.all.to_json(:methods => :time)});
