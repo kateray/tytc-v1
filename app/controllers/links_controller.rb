@@ -1,8 +1,9 @@
 class LinksController < ApplicationController
   def index    
     if params[:tags]
-      tags = Tag.find(params[:tags])
-      @links = Link.order("votes_count DESC").includes(:tags).select{|link| (tags - link.tags).empty?}
+      # tags = Tag.find(params[:tags])
+      @links = Link.order("votes_count DESC")
+      # @links = Link.order("votes_count DESC").includes(:tags).select{|link| (tags - link.tags).empty?}
     else
       @links = Link.order("votes_count DESC")
     end
