@@ -13,7 +13,7 @@ class LinksController < ApplicationController
       @link = Link.new
       @comment = Comment.new
     end
-    # @links.each{|link|link.current_user = current_user}
+    @links.each{|link|link.current_user = current_user}
     
     respond_to do |format|
       format.html {render}
