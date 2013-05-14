@@ -19,8 +19,8 @@
         #home
           = link_to 'teach yourself to code', '/'
         - unless current_user
-          #about_link
-            = link_to 'why?', '/about'
+          / #about_link
+          /   = link_to 'why?', '/about'
         #user_info
           - if current_user
             = link_to current_user.username, '/' + current_user.username

@@ -42,3 +42,4 @@ gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'newrelic_rpm'
+gem "airbrake"
