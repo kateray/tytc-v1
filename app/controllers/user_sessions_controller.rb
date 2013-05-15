@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class Users::SessionsController < Devise::SessionsController
 
   before_filter :logmeout, :only => [:new, :create]
   

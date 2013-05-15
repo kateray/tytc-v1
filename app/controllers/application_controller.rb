@@ -1,21 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  helper_method :current_user_session, :current_user, :store_location
-  
-  def current_user_session
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
-  end
-
-  def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.user
-  end
-  
-  def store_location
-    session[:return_to] = request.path
-  end
+  # before_filter :configure_permitted_parameters, if: :devise_controller?
   
   def redirect_to_target_or_default
     if session[:return_to]
@@ -31,6 +16,12 @@ class ApplicationController < ActionController::Base
       current_user_session.destroy
       # redirect_to :back
     end
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username) }
   end
   
 end

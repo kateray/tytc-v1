@@ -22,13 +22,13 @@
           / #about_link
           /   = link_to 'why?', '/about'
         #user_info
-          - if current_user
+          - if user_signed_in?
             = link_to current_user.username, '/' + current_user.username
             |
-            = link_to 'logout', '/logout'
+            = link_to('logout', destroy_user_session_path, :method => :delete)
           - else
-            = link_to 'Signup', '/signup'
+            = link_to('signup', new_user_registration_path)
             |
-            = link_to 'Login', '/login'
+            = link_to('login', new_user_session_path)
     .content
       = yield

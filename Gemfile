@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -36,10 +36,12 @@ group :test do
   gem 'turn', :require => false
 end
 
-gem 'authlogic'
+gem 'devise'
 gem 'heroku'
 gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'newrelic_rpm'
 gem "airbrake"
+gem 'unicorn'
+gem 'pry'

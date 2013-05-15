@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
-  acts_as_authentic do |c|
-    c.validate_email_field = false
-    c.validate_login_field = false
-    c.login_field = :username
-    # c.find_by_login_method :find_by_email
-    # c.validate_password_field = {:if => :require_password?}
-    c.require_password_confirmation = {:if => :require_password?}
-    # c.merge_validates_length_of_password_field_options :allow_nil => true
-  end
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, :omniauth_providers => [:github]
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :username, :password, :password_confirmation, :remember_me, :provider, :uid
   
   has_many :links
   has_many :votes
@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     :presence => true,
     :uniqueness => true,
     :length => {:minimum => 1, :maximum => 254}
+
+  def email_required?
+    false
+  end
   
   def add_github_login(auth)
     self.github_id = auth['uid']
