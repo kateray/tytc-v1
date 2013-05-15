@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  # protect_from_forgery
   # before_filter :configure_permitted_parameters, if: :devise_controller?
   
   def redirect_to_target_or_default
@@ -18,10 +18,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username) }
+  def after_sign_in_path_for(resource)
+    root_path
   end
+
+
   
 end

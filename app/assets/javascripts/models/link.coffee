@@ -14,10 +14,6 @@ window.Link = Backbone.Model.extend
     errors.push "missing tags"  if _.isEmpty(attrs.taggings)
     (if _.any(errors) then errors else null)
 
-  initialize: ->
-    _.bindAll this
-    @first = true
-
   voteUp: ->
     if @get("has_voted") is "false"
       Votes.create link_id: @get("id")
@@ -26,16 +22,7 @@ window.Link = Backbone.Model.extend
         has_voted: "true"
 
   showLinkView: ->
-    $('#show_index').show()
     view = new LinkShowView(model: this)
     $("#linkShow").append view.render().el
-    if @first is false
-      @first = false
-      $("#linkShow_container").show()
-      $("#linkList").hide()
-    else
-      $("#linkList").hide "slide",
-        direction: "left"
-
-      $("#linkShow_container").show "slide",
-        direction: "right"
+    $("#linkShow_container, #show_index").show()
+    $("#linkList").hide()
