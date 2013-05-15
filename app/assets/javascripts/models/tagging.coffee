@@ -1,0 +1,1 @@
+class window.Tagging extends Backbone.Model

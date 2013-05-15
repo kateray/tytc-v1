@@ -14,39 +14,39 @@
 ActiveRecord::Schema.define(:version => 20130515154728) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "link_id"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "user_id"
+    t.integer   "link_id"
+    t.text      "content"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "links", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "votes_count",    :default => 0
-    t.integer  "comments_count", :default => 0
-    t.string   "url"
-    t.text     "description"
-    t.string   "title"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.integer   "user_id"
+    t.integer   "votes_count",    :default => 0
+    t.integer   "comments_count", :default => 0
+    t.string    "url"
+    t.text      "description"
+    t.string    "title"
+    t.timestamp "created_at",                    :null => false
+    t.timestamp "updated_at",                    :null => false
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer  "link_id"
-    t.integer  "tag_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "link_id"
+    t.integer   "tag_id"
+    t.integer   "user_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "tags", :force => true do |t|
-    t.string   "name"
-    t.string   "group"
-    t.integer  "links_count", :default => 0
-    t.integer  "user_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.string    "name"
+    t.string    "group"
+    t.integer   "links_count", :default => 0
+    t.integer   "user_id"
+    t.timestamp "created_at",                 :null => false
+    t.timestamp "updated_at",                 :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(:version => 20130515154728) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "link_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "user_id"
+    t.integer   "link_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
 end
