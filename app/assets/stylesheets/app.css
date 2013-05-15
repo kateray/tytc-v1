@@ -351,6 +351,7 @@ div.link_container {
 	margin-bottom: 10px;
 	clear: left;
 	font-size: 14px;
+	display: none;
 }
 
 div.link {

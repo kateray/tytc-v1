@@ -18,9 +18,6 @@
       #top_nav_content
         #home
           = link_to 'teach yourself to code', '/'
-        - unless current_user
-          / #about_link
-          /   = link_to 'why?', '/about'
         #user_info
           - if user_signed_in?
             = link_to current_user.username, '/' + current_user.username

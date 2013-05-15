@@ -25,11 +25,11 @@ window.Link = Backbone.Model.extend
         votes_count: @get("votes_count") + 1
         has_voted: "true"
 
-
   showLinkView: ->
+    $('#show_index').show()
     view = new LinkShowView(model: this)
     $("#linkShow").append view.render().el
-    if @first is true
+    if @first is false
       @first = false
       $("#linkShow_container").show()
       $("#linkList").hide()

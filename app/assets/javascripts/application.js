@@ -9,9 +9,10 @@
 //= require ./lib/underscore
 //= require ./lib/backbone
 //= requre_tree ./lib/
-//= require my_functions
+//= require_tree ./utils/
 //= require_tree ./models/
 //= require_tree ./collections/
 //= require_tree ./views/
-//= require_tree
+//= require initializer
+//= require_tree .
 //= require_self

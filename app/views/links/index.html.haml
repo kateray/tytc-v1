@@ -23,7 +23,7 @@
     = render "links/new"
   #links_container
     #linkShow_container
-      #show_index
+      %a{:id => "show_index", :href => '/'}
         <-- Back to Index
       #linkShow
     #linkList{:data => {:page => 'links'}}

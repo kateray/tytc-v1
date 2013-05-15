@@ -1,17 +1,19 @@
 window.LinkView = Backbone.View.extend
-  events: {}
+  events:
+    'click .link_comments'  : 'showLink'
   
   # "click .vote_button" : "voteUp"
   initialize: ->
-    _.bindAll this
+    # _.bindAll this
     that = this
     @$(".vote_button").bind "click", @model.voteUp
-    @$(".link_comments").bind "click", (event) ->
-      if $("#linkList").data("page") is "links"
-        event.preventDefault()
-        History.pushState
-          id: that.model.get("id")
-        , null, "/links/" + that.model.get("id")
+    # @$(".link_comments").bind "click", (event) ->
+    #   console.log 'hrm'
+    #   if $("#linkList").data("page") is "links"
+    #     event.preventDefault()
+    #     History.pushState {'id': that.model.get("id")}, null, "/links/" + that.model.get("id")
+    #     state = History.getState()
+    #     console.log state
 
     @model.bind "change", @render
     @model.bind "destroy", @remove
@@ -26,3 +28,7 @@ window.LinkView = Backbone.View.extend
 
   remove: ->
     $(@el).remove()
+
+  showLink: (e) ->
+    e.preventDefault()
+    App.router.navigate "links/" + @model.get('id'), {trigger: true}

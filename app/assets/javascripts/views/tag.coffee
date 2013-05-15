@@ -24,7 +24,7 @@ window.TagView = Backbone.View.extend
         Links.addTags.splice Links.addTags.indexOf(@model.get("id")), 1
 
   toggle: ->
-    if App.contributing == false
+    if App.contributing == false && !$('#linkList').is(":hidden")
       if @$(".tag_option").hasClass("selected")
         Links.queryParams.splice Links.queryParams.indexOf(@model.get("id")), 1
         Links.query()

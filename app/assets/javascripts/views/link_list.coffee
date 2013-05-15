@@ -5,8 +5,6 @@ window.LinkListView = Backbone.View.extend
     Links.bind "reset", @addAll
     App.view.bind "contributingOn", @contributingOn
     App.view.bind "contributingOff", @contributingOff
-    $(window).bind "popstate", @reload
-    @show_id = null
     @contributingOff()
     $("form[id=\"new_link\"]").find("input, textarea").addDefaultText()
     $("form[id=\"new_link\"]").submit @createLink
@@ -15,9 +13,9 @@ window.LinkListView = Backbone.View.extend
         showError XMLHttpRequest.responseText
         $("form[id=\"new_link\"]").resetForm()
 
-    $("#show_index").click ->
-      History.pushState null, null, "/"
-
+    $("#show_index").click (e) ->
+      e.preventDefault()
+      App.router.navigate "/", {trigger: true}
 
   createLink: (event) ->
     event.preventDefault()
@@ -43,13 +41,6 @@ window.LinkListView = Backbone.View.extend
       $("form[id=\"new_link\"]").resetForm()
     false
 
-  reload: ->
-    state = History.getState()
-    if state.data["id"]
-      Links.get(state.data["id"]).showLinkView()
-    else
-      @showIndex()
-
   showIndex: ->
     #tktk this is a bad way of finding whether to query
     Links.query()  if $("#linkList").find(".link_container").length < 2 and $("#user_container").length is 0
@@ -67,9 +58,8 @@ window.LinkListView = Backbone.View.extend
       , 400, ->
         $("#linkShow").html ""
 
-
   addOne: (link) ->
-    view = new LinkView(model: link)
+    view = new LinkView({model: link})
     $(@el).append view.render().el
     App.view.contributingOff()  if App.contributing
 
