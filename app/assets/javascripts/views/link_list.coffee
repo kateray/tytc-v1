@@ -3,8 +3,8 @@ window.LinkListView = Backbone.View.extend
     _.bindAll this
     Links.bind "add", @addOne
     Links.bind "reset", @addAll
-    App.bind "contributingOn", @contributingOn
-    App.bind "contributingOff", @contributingOff
+    App.view.bind "contributingOn", @contributingOn
+    App.view.bind "contributingOff", @contributingOff
     $(window).bind "popstate", @reload
     @show_id = null
     @contributingOff()
@@ -39,7 +39,7 @@ window.LinkListView = Backbone.View.extend
       wait: true
     )
     if newLink
-      App.contributingOff()
+      App.view.contributingOff()
       $("form[id=\"new_link\"]").resetForm()
     false
 
@@ -51,7 +51,6 @@ window.LinkListView = Backbone.View.extend
       @showIndex()
 
   showIndex: ->
-    
     #tktk this is a bad way of finding whether to query
     Links.query()  if $("#linkList").find(".link_container").length < 2 and $("#user_container").length is 0
     if first is true
@@ -72,7 +71,7 @@ window.LinkListView = Backbone.View.extend
   addOne: (link) ->
     view = new LinkView(model: link)
     $(@el).append view.render().el
-    App.contributingOff()  if contributing
+    App.view.contributingOff()  if App.contributing
 
   addAll: ->
     $(@el).html ""

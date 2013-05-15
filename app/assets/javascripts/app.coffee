@@ -3,10 +3,10 @@ jQuery ($) ->
     $(this).delay 2000
     $(this).slideUp "fast"
 
-  
-  // #tktk prob shouldn't be a global variable - when i set it on AppView doesn't work tho
-  window.contributing = false
-  window.App = new AppView(el: $(window))
+  window.App = {}
+  window.App.contributing = false
+  window.App.view = new AppView(el: $(window))
+
   window.Votes = new VoteList
 
   window.Links = new LinkList

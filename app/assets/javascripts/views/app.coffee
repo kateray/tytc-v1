@@ -7,7 +7,7 @@ window.AppView = Backbone.View.extend
     @contributingOff()
 
   contributingOn: ->
-    contributing = true
+    App.contributing = true
     @trigger "contributingOn"
     $("#contributing_mode").slideDown "fast"
     $("#links_container").animate
@@ -16,7 +16,7 @@ window.AppView = Backbone.View.extend
     $("#links_container").bind "click.contributingOff", @contributingOff
 
   contributingOff: ->
-    contributing = false
+    App.contributing = false
     @trigger "contributingOff"
     $(".invalid").removeClass "invalid"
     $("#contributing_mode").slideUp "fast"

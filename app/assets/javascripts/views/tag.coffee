@@ -11,11 +11,11 @@ window.TagView = Backbone.View.extend
 
   render: ->
     $(@el).html $("#tagTemplate").tmpl(@model.toJSON())
-    @$(".contributing_tick").show()  if contributing is true
+    @$(".contributing_tick").show()  if App.contributing is true
     this
 
   addTag: ->
-    if contributing is true
+    if App.contributing is true
       if @$(".contributing_tick").is(":checked")
         $("#new_link_tags").append "<div class = \"link_tag\" data-id=" + @model.get("id") + ">" + @$(".tag_option").html() + "</div>"
         Links.addTags.push @model.get("id")
@@ -24,8 +24,7 @@ window.TagView = Backbone.View.extend
         Links.addTags.splice Links.addTags.indexOf(@model.get("id")), 1
 
   toggle: ->
-    console.log "helllllllo"
-    if contributing is false and not $("#linkList").is(":hidden")
+    if App.contributing == false
       if @$(".tag_option").hasClass("selected")
         Links.queryParams.splice Links.queryParams.indexOf(@model.get("id")), 1
         Links.query()

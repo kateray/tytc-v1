@@ -5,7 +5,7 @@ window.LinkShowView = Backbone.View.extend
     @model.bind "change", @render
 
   render: ->
-    App.contributingOff()
+    App.view.contributingOff()
     $(@el).html $("#linkShowTemplate").tmpl(@model.toJSON())
     if @model.get("has_voted") is "true"
       @$(".vote_button").css "opacity", "0"

@@ -6,7 +6,6 @@ window.LinkList = Backbone.Collection.extend
     @queryParams = new Array()
 
   query: ->
-    console.log "wtf"
     params = {}
     params["tags"] = @queryParams
-    @fetch data: params
+    @fetch data: params, reset: true
