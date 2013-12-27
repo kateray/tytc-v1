@@ -47,3 +47,4 @@ gem 'newrelic_rpm'
 gem "airbrake"
 gem 'unicorn'
 gem 'pry'
+gem "oink"
