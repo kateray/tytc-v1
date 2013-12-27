@@ -48,3 +48,4 @@ gem "airbrake"
 gem 'unicorn'
 gem 'pry'
 gem "oink"
+gem 'sentry-raven' #for sentry error logging
