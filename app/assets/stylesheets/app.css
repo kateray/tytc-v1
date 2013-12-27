@@ -188,7 +188,7 @@ a.link_comments {
 	margin-top: 9px;
 }
 .link .author{
-	
+
 	float: right;
 }
 div.author {
@@ -334,7 +334,7 @@ div.vote {
 }
 
 #languageList {
-	
+
 }
 
 #links_container {
@@ -374,7 +374,7 @@ span.vote_count {
 	position: fixed;
 	left: 0;
 	padding-top: 20px;
-	right: 0;8
+	right: 0;
 	opacity: 0.9;
 	z-index: 10;
 }
