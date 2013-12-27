@@ -57,5 +57,4 @@ Tytc::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  config.middleware.use Oink::Middleware, :logger => Hodel3000CompliantLogger.new(STDOUT)
 end
