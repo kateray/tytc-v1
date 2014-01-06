@@ -3,12 +3,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    
+
   end
-  
+
   def create
     @user = User.new(params[:user])
-    
+
     if @user.save
       redirect_to_target_or_default
     else
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to :back
     end
   end
-  
+
   def update
     @user = current_user
 
@@ -30,10 +30,14 @@ class UsersController < ApplicationController
     end
 
   end
-  
+
   def show
     @user = User.find_by_username(params[:username])
-    @links = @user.links
+    if @user
+      @links = @user.links
+    else
+      not_found
+    end
   end
-  
+
 end
