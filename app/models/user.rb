@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
          :validatable, :omniauthable, :omniauth_providers => [:github], :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :password, :password_confirmation, :remember_me, :provider, :uid, :login
+  attr_accessible :username, :password, :password_confirmation, :remember_me, :provider, :uid, :login, :encrypted_password
   attr_accessor :login
 
   has_many :links
