@@ -4,10 +4,14 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
+group :development do
+  gem 'pry'
+end
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 group :production do
   gem 'pg'
@@ -36,6 +40,9 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'mocha', :require => false
 end
 
 gem 'devise'
@@ -46,6 +53,5 @@ gem 'omniauth-github'
 gem 'newrelic_rpm'
 gem "airbrake"
 gem 'unicorn'
-gem 'pry'
 gem "oink"
 gem 'sentry-raven' #for sentry error logging
