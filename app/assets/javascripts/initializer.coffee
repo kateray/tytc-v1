@@ -1,11 +1,11 @@
 jQuery ($) ->
-  $("#flash_error").each ->
+  $("#flash_error, #flash_alert, #flash_notice").each ->
     $(this).delay 2000
     $(this).slideUp "fast"
 
   window.App = {}
   window.App.contributing = false
-  window.App.view = new AppView(el: $(window))
+  window.App.view = new AppView(el: $('body'))
   window.App.router = new Router()
 
   window.Votes = new VoteList
@@ -30,5 +30,5 @@ jQuery ($) ->
 	  , ->
 	    showError "Changes Saved"
 
-  
+
   Backbone.history.start({pushState: true})
