@@ -15,3 +15,8 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+OR
+
+<%= link_to 'Login with Github', user_omniauth_authorize_path(:github) %>
+<%= link_to image_tag("github-round.png"), user_omniauth_authorize_path(:github) %>
