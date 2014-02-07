@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     self.github_email = auth['info']['email']
   end
 
-  def assign_username(username)
+  def self.assign_username(username)
     if User.where(:username => username).exists?
       username = username + '1'
     end
