@@ -29,13 +29,21 @@ class User < ActiveRecord::Base
     self.github_email = auth['info']['email']
   end
 
+  def assign_username(username)
+    if User.where(:username => username).exists?
+      username = username + '1'
+    end
+    username
+  end
+
   def self.github_find_or_create(auth)
     unless user = User.find_by_github_id(auth['uid'])
       create! do |user|
         user.github_id = auth['uid']
         user.github_username = auth['info']['nickname']
-        user.username = auth['info']['nickname']
+        user.username = assign_username(auth['info']['nickname'])
         user.github_email = auth['info']['email']
+        user.password = SecureRandom.hex(6)
       end
     end
     return user
