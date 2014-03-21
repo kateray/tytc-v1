@@ -9,3 +9,13 @@
   a {
     color: #000;
   }
+
+.notice {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.alert {
+  background-color: white;
+  border: none;
+}
