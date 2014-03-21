@@ -1,3 +1,29 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  username               :string(255)
+#  email                  :string(255)
+#  description            :text
+#  github_id              :integer
+#  github_email           :string(255)
+#  github_username        :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  provider               :string(255)      default("github")
+#  uid                    :string(255)
+#
+
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
@@ -11,8 +37,6 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
   has_many :tags
-  has_many :languages
-  has_many :categories
 
   validates :username,
     :presence => true,
@@ -21,6 +45,10 @@ class User < ActiveRecord::Base
 
   def email_required?
     false
+  end
+
+  def is_god?
+    god == true
   end
 
   def add_github_login(auth)

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: taggings
+#
+#  id         :integer          primary key
+#  link_id    :integer
+#  tag_id     :integer
+#  user_id    :integer
+#  created_at :timestamp        not null
+#  updated_at :timestamp        not null
+#
+
 class Tagging < ActiveRecord::Base
   belongs_to :user
   belongs_to :link

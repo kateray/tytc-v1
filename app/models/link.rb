@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id             :integer          primary key
+#  user_id        :integer
+#  votes_count    :integer          default(0)
+#  comments_count :integer          default(0)
+#  url            :string(255)
+#  description    :text
+#  title          :string(255)
+#  created_at     :timestamp        not null
+#  updated_at     :timestamp        not null
+#
+
 class Link < ActiveRecord::Base
 
   attr_accessor :current_user

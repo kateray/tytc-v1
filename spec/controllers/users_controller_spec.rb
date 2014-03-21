@@ -45,7 +45,6 @@ describe UsersController do
     end
 
   end
-
   # github login
 
 end
