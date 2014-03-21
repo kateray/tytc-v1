@@ -1,7 +1,7 @@
 Tytc::Application.routes.draw do
-  
 
-  
+
+
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
@@ -13,8 +13,8 @@ Tytc::Application.routes.draw do
   resources :taggings
   resources :tags
 
-  match "/save" => "users#update"
-  match "/:username" => "users#show"
+  put "/save" => "users#update"
+  get "/:username" => "users#show"
 
   root :to => "links#index"
 end

@@ -1,21 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :logmeout, :only => [:new, :create]
-
-  def new
-    @user = User.new
-
-  end
-
-  def create
-    @user = User.new(params[:user])
-
-    if @user.save
-      redirect_to_target_or_default
-    else
-      flash[:error] = @user.errors.full_messages.join(", ")
-      redirect_to :back
-    end
-  end
+  before_filter :logmeout, :only => [:update]
 
   def update
     @user = current_user

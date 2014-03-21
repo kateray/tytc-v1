@@ -46,15 +46,6 @@ describe UsersController do
 
   end
 
-  # context "signed in as non-admin user" do
-  #   let(:user) {create(:user, :god => false)}
-  #   before do
-  #     sign_in_as user
-  #     get :index
-  #   end
-  # 
-  #   it { should respond_with(:success)}
-  # end
 
   # github login
 

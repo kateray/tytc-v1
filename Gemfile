@@ -1,43 +1,15 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.1.1'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.3'
+
 gem 'rails_admin'
 
 group :development do
   gem 'pry'
   gem 'annotate'
 end
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails'
-end
-group :production do
-  gem 'pg'
-end
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails', "  ~> 3.2.0"
-  gem 'coffee-rails', "~> 3.2.0"
-  gem 'uglifier'
-end
-
-gem 'jquery-rails'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
@@ -45,8 +17,26 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'mocha', :require => false
+  gem "database_cleaner"
 end
 
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+
+
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+
+gem 'jquery-rails'
 gem 'devise'
 gem 'heroku'
 gem 'haml'
@@ -55,5 +45,4 @@ gem 'omniauth-github'
 gem 'newrelic_rpm'
 gem "airbrake"
 gem 'unicorn'
-gem "oink"
 gem 'sentry-raven' #for sentry error logging

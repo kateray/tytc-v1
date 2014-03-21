@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def redirect_to_target_or_default
     if session[:return_to]
@@ -26,6 +27,11 @@ class ApplicationController < ActionController::Base
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
+  protected
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :username
+    devise_parameter_sanitizer.for(:sign_in) << :username
+  end
 
 end

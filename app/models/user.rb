@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
          :validatable, :omniauthable, :omniauth_providers => [:github], :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :password, :password_confirmation, :remember_me, :provider, :uid, :login, :encrypted_password
   attr_accessor :login
 
   has_many :links
@@ -39,9 +38,9 @@ class User < ActiveRecord::Base
   has_many :tags
 
   validates :username,
-    :presence => true,
-    :uniqueness => {:case_sensitive => false},
-    :length => {:minimum => 1, :maximum => 254}
+    presence: true,
+    uniqueness: {:case_sensitive => false},
+    length: {:minimum => 1, :maximum => 254}
 
   def email_required?
     false
