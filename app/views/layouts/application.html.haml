@@ -32,8 +32,9 @@
             |
             = link_to('logout', destroy_user_session_path, :method => :delete)
           - else
-            = link_to('signup', new_user_registration_path)
+            = link_to 'signup', new_user_registration_path, :class => "signup_link"
             |
-            = link_to('login', new_user_session_path)
+            = link_to 'login', new_user_session_path, :class => "login_link"
     .content
       = yield
+    = render "/shared/sessions_popup"

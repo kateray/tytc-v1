@@ -1,0 +1,17 @@
+.modal.fade.sessions-modal{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %h2.modal-title
+      .modal-body.container-fluid
+        .row-fluid
+          .span6
+            .login-container
+              = render "/users/login"
+            .signup-container
+              = render "/users/signup"
+          .span6
+            .github-container
+              = link_to image_tag("github-round.png"), user_omniauth_authorize_path(:github)
+              %br
+              = link_to 'or login with Github', user_omniauth_authorize_path(:github)

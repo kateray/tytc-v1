@@ -1,0 +1,15 @@
+= form_for(:user, :url => registration_path(:user)) do |f|
+  = devise_error_messages!
+
+  = f.label :username
+  = f.text_field :username, :autofocus => true
+
+  = f.label :password
+  = f.password_field :password
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
+
+  = f.submit "Sign up"
+
+= link_to "Sign in", new_session_path(:user), :class => "login_link"
