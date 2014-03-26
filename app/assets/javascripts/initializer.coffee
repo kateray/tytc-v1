@@ -11,7 +11,7 @@ jQuery ($) ->
   window.Votes = new VoteList
 
   window.Links = new LinkList
-  window.LinksView = new LinkListView({el : '#linkList'})
+  window.LinksView = new LinkListView()
 
   window.Tags = new TagList
   window.Taggings = new TaggingList;
@@ -19,8 +19,6 @@ jQuery ($) ->
 
   window.Comments = new CommentList()
 
-	$("#user_form").find("input").addDefaultText()
-	$("#editable_description").addDefaultText "Write something about yourself"  if $.trim($("#editable_description").text()).length is 0
 	$("#update_user").click ->
 	  sendData = {}
 	  $("#editable_description").val ""  if $("#editable_description").text() is $("#editable_description").data("default")

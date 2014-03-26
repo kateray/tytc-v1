@@ -35,9 +35,11 @@ end
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem "twitter-bootstrap-rails"
-
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+gem 'rails4-autocomplete'
 gem 'devise'
 gem 'heroku'
 gem 'haml'

@@ -1,40 +1,70 @@
 !!! XML
 !!!
-%html
+%html{:lang=>'en'}
   %head
+    %meta{:charset=>"utf-8"}
+    %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=edge"}
+    %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1"}
     %title teach yourself to code
     / ....is open source! Check out https://github.com/kateray/tytc
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300|Poiret+One' rel='stylesheet' type='text/css'>
     <meta name = "description" content = "Link sharing site for the best programming tutorials and resources">
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tag
     = render "application/ga"
   %body{:class => "#{controller_name} #{action_name}"}
-    <a href="http://github.com/kateray/tytc"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:10;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
+    -# <a href="http://github.com/kateray/tytc"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:10;" src="https://a248.e.akamai.net/camo.github.com/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
     -# - if flash[:error]
     -#   = content_tag :div, flash[:error], :id => "flash_error"
     -# - if flash[:notice]
     -#   = content_tag :div, flash[:notice], :id => "flash_notice"
     -# - if flash[:alert]
     -#   = content_tag :div, flash[:alert], :id => "flash_alert"
-    %p.notice
-      = notice
-    %p.alert
-      = alert
-    #jsError{:style=>"display:none"}
-    #top_nav
-      #top_nav_content
-        #home
-          = link_to 'teach yourself to code', '/'
-        #user_info
-          - if user_signed_in?
-            = link_to current_user.username, '/' + current_user.username
-            |
-            = link_to('logout', destroy_user_session_path, :method => :delete)
-          - else
-            = link_to 'signup', new_user_registration_path, :class => "signup_link"
-            |
-            = link_to 'login', new_user_session_path, :class => "login_link"
+    -# %p.notice
+    -#   = notice
+    -# %p.alert
+    -#   = alert
+    -# #jsError{:style=>"display:none"}
+
+    %nav.navbar.navbar-inverse{:role=>"navigation"}
+      .container-fluid
+        .navbar-header
+          %button{:type=>"button", :class=>"navbar-toggle", "data-toggle"=>"collapse", "data-target"=>"#bs-example-navbar-collapse-1"}
+            %span{:class=>"sr-only"} Toggle navigation
+            %span{:class=>"icon-bar"}
+            %span{:class=>"icon-bar"}
+            %span{:class=>"icon-bar"}
+          = link_to 'teach yourself to code', '/', :class=>"navbar-brand"
+        .collapse.navbar-collapse#bs-example-navbar-collapse-1
+          %form.navbar-form.navbar-right{:role=>"search"}
+            .form-group
+              %input#search-form.form-control{:type=>"text", :placeholder=>"Search"}
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                = link_to current_user.username, '/' + current_user.username
+              %li
+                = link_to('logout', destroy_user_session_path, :method => :delete)
+            - else
+              %li
+                = link_to 'signup', new_user_registration_path, :class => "signup_link"
+              %li
+                = link_to 'login', new_user_session_path, :class => "login_link"
+    -# #top_nav
+      -# #top_nav_content
+      -#   #home
+      -#     = link_to 'teach yourself to code', '/'
+      -#   #user_info
+      -#     - if user_signed_in?
+      -#       = link_to current_user.username, '/' + current_user.username
+      -#       |
+      -#       = link_to('logout', destroy_user_session_path, :method => :delete)
+      -#     - else
+      -#       = link_to 'signup', new_user_registration_path, :class => "signup_link"
+      -#       |
+      -#       = link_to 'login', new_user_session_path, :class => "login_link"
     .content
+    .container
       = yield
     = render "/shared/sessions_popup"

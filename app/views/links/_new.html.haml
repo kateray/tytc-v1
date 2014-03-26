@@ -1,10 +1,37 @@
-#new_link_form
+#new_link_form.container
   = form_for @link do |f|
-    = f.text_field :title, :value => 'title'
-    = f.text_field :url, :value => 'url'
-    = button_tag "submit"
-    #contributing_mode{:style => "display:none"}
-      = f.text_area :description, :value => 'description'
-      %br
-      Please add at least one Level, Language, and Category tag ------->
-      #new_link_tags
+    .row
+      .col-md-8
+        .row
+          .col-md-6
+            = f.text_field :title, :placeholder => 'title'
+          .col-md-6
+            = f.text_field :url, :type => 'url', :placeholder => 'url'
+        #contributing-mode.collapse
+          .row
+            .col-md-12
+              = f.text_area :description, :placeholder => 'description'
+          .row
+            .col-md-2
+              = f.label "Level"
+            .col-md-10
+              .btn-group
+                %button.level-button.btn.btn-default{:type=>"button", :data=>{"tag-id"=>1}} Beginner
+                %button.level-button.btn.btn-default{:type=>"button", :data=>{"tag-id"=>2}} Intermediate
+                %button.level-button.btn.btn-default{:type=>"button", :data=>{"tag-id"=>3}} Advanced
+          .row
+            .col-md-2
+              = f.label "Languages"
+            .col-md-4
+              = f.autocomplete_field :tag_name, autocomplete_tag_name_links_path(:group=>"Language"), :id => "language-autocomplete"
+            .col-md-6#new-language-tags
+          .row
+            .col-md-2
+              = f.label "Categories"
+            .col-md-4
+              = f.autocomplete_field :tag_name, autocomplete_tag_name_links_path(:group=>"Category"), :id => "category-autocomplete"
+            .col-md-6#new-category-tags
+      .col-md-2
+        = button_tag "submit"
+        .form-errors
+#close-new-link

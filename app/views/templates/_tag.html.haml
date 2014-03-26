@@ -1,4 +1,5 @@
 %script{:type => "text/x-jquery-tmpl", :id => "tagTemplate"}
-	<input type="checkbox" name="new_tagging" value="${name}" class="contributing_tick" style="display:none"/> 
-	.tag_option
+	%span.tag-name
 		${name}
+	%span.close-tag{:style=>"display:none;"}
+		x

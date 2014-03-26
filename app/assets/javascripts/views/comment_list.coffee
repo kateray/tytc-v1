@@ -4,8 +4,6 @@ window.CommentListView = Backbone.View.extend
     Comments.bind "create"
     Comments.bind "add", @addOne
     Comments.bind "reset", @addAll
-    App.view.bind "contributingOn", @contributingOn
-    App.view.bind "contributingOff", @contributingOff
     @input = @$("#new_comment")
     @link_id = options.link_id
     Comments.fetch data:
@@ -28,9 +26,3 @@ window.CommentListView = Backbone.View.extend
     Comments.create formData
     $("form[id=\"new_comment\"]").resetForm()
     false
-
-  contributingOn: ->
-    @$("textarea, input, button").attr "disabled", "disabled"
-
-  contributingOff: ->
-    @$("textarea, input, button").removeAttr "disabled"

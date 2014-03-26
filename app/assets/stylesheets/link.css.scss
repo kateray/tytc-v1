@@ -1,0 +1,60 @@
+div.link_container {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 20px;
+}
+
+.link_container:hover{
+  background: #f7f7f9;
+  cursor: pointer;
+}
+
+.link-tags {
+  color: silver;
+  font-size: 11px;
+}
+
+.link_container a.link_url {
+  color: #25264d;
+  font-size: 20px;
+}
+
+a.link_comments {
+  margin-left: 5px;
+  font-size: 11px;
+  color: silver;
+}
+
+.description {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+
+// Voting
+.vote {
+  position: relative;
+}
+
+.vote_button{
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid black;
+  cursor:pointer;
+  float: left;
+  padding-bottom: 3px;
+  margin-top: 2px;
+  color: #a65bf4;
+  margin-bottom: 7px;
+}
+
+span.vote_count {
+  position: absolute;
+  width: 20px;
+  text-align: center;
+  left: 10px;
+  top: 8px;
+  font-size: 15px;
+  color: #25264d;
+}

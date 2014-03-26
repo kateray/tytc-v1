@@ -15,23 +15,25 @@
 
 class Link < ActiveRecord::Base
 
-  attr_accessor :current_user
-  
+  attr_accessor :current_user, :tag_ids, :tag_name
+
   belongs_to :user
   belongs_to :tag
   has_many :votes
   has_many :taggings
   has_many :tags, :through => :taggings
   has_many :comments
-  
+
+  accepts_nested_attributes_for :taggings
+
   validates :user_id,
     :presence => true
-  validates :url, 
+  validates :url,
     :presence => true,
     :uniqueness => {:message => "Someone's already added that link"}
   validates :title,
     :presence => true
-  
+
   def as_json(options={})
     result = super({ :except => [:user_id, :created_at, :updated_at] })
     if current_user

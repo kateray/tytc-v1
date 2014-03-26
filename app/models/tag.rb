@@ -15,9 +15,13 @@ class Tag < ActiveRecord::Base
   has_many :taggings
   has_many :links, :through => :taggings
 
-  validates :name, 
+  validates :name,
   :presence => true,
   :uniqueness => {:message => "Tag already exists"}
+
+  scope :language, -> { where(group: 'Language') }
+  scope :category, -> { where(group: 'Category') }
+
 
   def time
   	self.created_at.to_i

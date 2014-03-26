@@ -1,5 +1,7 @@
 class LinksController < ApplicationController
-  # caches_action :index
+  before_filter :authenticate_user!, only: :create
+
+  autocomplete :tag, :name
 
   def index
     if params[:tags]
@@ -9,10 +11,8 @@ class LinksController < ApplicationController
     else
       @links = Link.order("votes_count DESC").includes(:tags)
     end
-    if current_user
-      @link = Link.new
-      @comment = Comment.new
-    end
+    @link = Link.new
+    @comment = Comment.new
     #tktk very bad!
     @links.each{|link|link.current_user = current_user}
 
@@ -41,16 +41,6 @@ class LinksController < ApplicationController
     @link = current_user.links.build(link_params)
 
     if @link.save
-
-       # TKTK should be in model, but lang array isn't nested under params[:link]
-      params[:taggings].each do |id|
-        Tagging.create! do |tagging|
-          tagging.link_id = @link.id
-          tagging.user_id = @link.user_id
-          tagging.tag_id = id
-        end
-      end
-
       @link.current_user = current_user
 
       respond_to do |format|
@@ -65,7 +55,11 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url, :description, :title, :votes_count, :comments_count)
+    params.require(:link).permit(:url, :description, :title, :votes_count, :comments_count, :taggings_attributes => [:tag_id])
+  end
+
+  def get_autocomplete_items(parameters)
+    super(parameters).where(:group => params[:group])
   end
 
 end

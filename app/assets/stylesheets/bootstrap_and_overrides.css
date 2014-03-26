@@ -6,9 +6,28 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  a {
-    color: #000;
-  }
+body {
+  background: #efefef;
+}
+
+.navbar {
+  background: #25264d;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+#search-form {
+  background: #25264d;
+}
+
+.container {
+  max-width: 900px;
+  background: #fff;
+}
+
+a {
+  color: #000;
+}
 
 .notice {
   margin-top: 40px;
@@ -18,4 +37,10 @@
 .alert {
   background-color: white;
   border: none;
+}
+
+
+
+#main-column {
+  padding: 0px;
 }

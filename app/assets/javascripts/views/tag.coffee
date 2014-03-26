@@ -1,8 +1,11 @@
 window.TagView = Backbone.View.extend
+  className: 'tag-option'
+
   events:
-    
-    # "click" : "toggle",
+
+    # "click" : "select",
     "change .contributing_tick": "addTag"
+    # "click .close-tag" : "unselect"
 
   initialize: ->
     _.bindAll this
@@ -23,13 +26,29 @@ window.TagView = Backbone.View.extend
         $("#new_link_tags").find(".link_tag[data-id=\"" + @model.get("id") + "\"]").remove()
         Links.addTags.splice Links.addTags.indexOf(@model.get("id")), 1
 
+  select: ->
+    return if @$el.hasClass "selected"
+    Links.queryParams.push @model.get("id")
+    Links.query()
+    @$el.addClass "selected"
+    @$el.find('.close-tag').show()
+
+  unselect: ->
+    console.log 'hello'
+    Links.queryParams.splice Links.queryParams.indexOf(@model.get("id")), 1
+    Links.query()
+    @$el.removeClass "selected"
+    @$el.find('.close-tag').hide()
+
   toggle: ->
     if App.contributing == false && !$('#linkList').is(":hidden")
-      if @$(".tag_option").hasClass("selected")
+      if @$el.hasClass("selected")
         Links.queryParams.splice Links.queryParams.indexOf(@model.get("id")), 1
         Links.query()
-        @$(".tag_option").removeClass "selected"
+        @$el.removeClass "selected"
+        @$el.find('.close-tag').hide()
       else
         Links.queryParams.push @model.get("id")
         Links.query()
-        @$(".tag_option").addClass "selected"
+        @$el.addClass "selected"
+        @$el.find('.close-tag').show()

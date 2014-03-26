@@ -7,7 +7,10 @@ Tytc::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :links
+  resources :links do
+    get :autocomplete_tag_name, :on => :collection
+  end
+
   resources :comments
   resources :votes
   resources :taggings

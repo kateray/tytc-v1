@@ -11,9 +11,17 @@
 #
 
 class Tagging < ActiveRecord::Base
+
+  attr_accessor :tag_name
+
   belongs_to :user
   belongs_to :link
   belongs_to :tag
+
+  # validates :link_id,
+  #   :presence => true
+  # validates :tag_id,
+  #   :presence => true
 
   after_create :increment_parent_counter_cache
   after_destroy :decrement_parent_counter_cache
@@ -27,5 +35,5 @@ class Tagging < ActiveRecord::Base
   def decrement_parent_counter_cache
     self.tag.class.decrement_counter(:links_count, self.tag_id)
   end
-  
+
 end
